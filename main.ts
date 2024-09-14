@@ -429,9 +429,9 @@ namespace TFTDisplay {
      * Do initial set up for display. (Required before any drawing begins.)
      */
 
-    function tftReset_ILI9431(): void {
+    function tftReset_ILI9341(): void {
 
-        // Reset for ILI9431
+        // Reset for ILI9341
         tftCom(TftCom.DELAY, [200])
         pins.digitalWritePin(RS, 1)
         tftCom(TftCom.DELAY, [200])
@@ -444,7 +444,7 @@ namespace TFTDisplay {
 
     function tftSetup_ILI9341(): void {
 
-        tftReset_ILI9431()
+        tftReset_ILI9341()
 
         // General Setup (for various display types)
         tftCom(TftCom.SLPOUT, [])
@@ -763,7 +763,19 @@ namespace TFTDisplay {
         tftCom(TftCom.SCLAMT, [amount >> 8, amount])
     }
 
-
+    /**
+     * Setup and clear screen ready for used
+     */
+    //% blockId="TFT_setupScreen" block="setupScreen width:%x height:%y model:%_model MOSI:%MOSI SCK:%SCK CS:%CS DC:%DC RS:%RESET"
+    //% x.defl=240
+    //% y.defl=320
+    //% _model.defl=DISPLAY_CONTROLLER.ILI9341
+    //% MOSI.defl=DigitalPin.P15
+    //% SCK.defl=DigitalPin.P13
+    //% _CS.defl=DigitalPin.P16
+    //% _DC.defl=DigitalPin.P9
+    //% _RESET.defl=DigitalPin.P8
+    //% weight=99
     export function setupScreen(x: number = 240, y: number = 320, _model: DISPLAY_CONTROLLER, MOSI: DigitalPin = DigitalPin.P15, SCK: DigitalPin = DigitalPin.P13, _CS: DigitalPin = DigitalPin.P16, _DC: DigitalPin = DigitalPin.P9, _RESET: DigitalPin = DigitalPin.P8): void {
         screen_x = x
         screen_y = y
