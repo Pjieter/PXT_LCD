@@ -251,11 +251,11 @@ namespace TFTDisplay {
         STSL = 0x44
     }
 
-    let screen_x = 128
-    let screen_y = 160
+    let screen_x = 240
+    let screen_y = 320
     let scroll_top = 0
     let scroll_area = 0
-    let model = DISPLAY_CONTROLLER.ST7735
+    let model = DISPLAY_CONTROLLER.ILI9341
     let DC = DigitalPin.P9
     let CS = DigitalPin.P16
     let RS = DigitalPin.P8
