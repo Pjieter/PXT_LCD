@@ -245,6 +245,7 @@ namespace TFTDisplay {
     let DC = DigitalPin.P9
     let CS = DigitalPin.P16
     let RS = DigitalPin.P8
+    let BL = DigitalPin.P3
     let _ZOOM = 0
 
     function displayScale(): number {
@@ -732,19 +733,6 @@ namespace TFTDisplay {
     }
 
 
-    /**
-     * Setup and clear screen ready for used
-     */
-    //% blockId="TFT_setupScreen" block="setupScreen width:%x height:%y model:%_model MOSI:%MOSI SCK:%SCK CS:%CS DC:%DC RS:%RESET"
-    //% x.defl=128
-    //% y.defl=160
-    //% _model.defl=DISPLAY_CONTROLLER.ST7735
-    //% MOSI.defl=DigitalPin.P14
-    //% SCK.defl=DigitalPin.P13
-    //% _CS.defl=DigitalPin.P10
-    //% _DC.defl=DigitalPin.P15
-    //% _RESET.defl=DigitalPin.P16
-    //% weight=99
     export function setupScreen(x: number = 240, y: number = 320, _model: DISPLAY_CONTROLLER, MOSI: DigitalPin = DigitalPin.P15, SCK: DigitalPin = DigitalPin.P13, _CS: DigitalPin = DigitalPin.P16, _DC: DigitalPin = DigitalPin.P9, _RESET: DigitalPin = DigitalPin.P8): void {
         screen_x = x
         screen_y = y
@@ -752,7 +740,9 @@ namespace TFTDisplay {
         CS = _CS
         DC = _DC
         RS = _RESET
+        BL = DigitalPin.P3
 
+        pins.analogWritePin(BL, 564)
         pins.digitalWritePin(RS, 1)
         pins.spiPins(MOSI, DigitalPin.P14, SCK)
         pins.spiFrequency(4000000) // try a fast rate for serial bus
