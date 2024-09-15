@@ -737,7 +737,7 @@ namespace LCD {
         LCD_Write_Command(0x29); //Display on
     }
 
-    //% blockId=LCD_setPins block="set LCD pins CS %csPin DC %dcPin RST %rstPin MOSI %MOSIPin MISO %MISOPin BL %BLPin"
+    //% blockId=LCD_setPins block="set LCD pins CS %csPin DC %dcPin RST %rstPin MOSI %MOSIPin MISO %MISOPin BL %BLPin clck %clckPin"
     export function setPins(csPin: DigitalPin, dcPin: DigitalPin, rstPin: DigitalPin, MOSIPin: DigitalPin, MISOPin: DigitalPin, clckPin: DigitalPin, BLPin: DigitalPin) {
         cs = csPin;
         dc = dcPin;
