@@ -750,7 +750,7 @@ namespace LCD {
         pins.spiFormat(16, 3); // 8 bits per transfer, mode 0
         pins.spiFrequency(4000000); // 1 MHz
         lcdInit();
-        pins.analogWritePin(BL, 563)
+        pins.analogWritePin(BL, 100)
     }
 
     //% blockId=LCD_drawPoint block="draw point at x %x y %y color %color"
